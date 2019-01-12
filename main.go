@@ -20,7 +20,7 @@ var (
 
 // Custom variables
 var (
-	helpMsg = fmt.Sprintf("Prefix: `&`\nhelp `COMMAND`")
+	helpMsg = fmt.Sprintf("Prefix: `&`\nhelp `COMMAND`\nalembic")
 
 	splitMsgLowered = []string{}
 )
