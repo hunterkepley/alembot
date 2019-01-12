@@ -79,14 +79,29 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) { // Messag
 	splitMsgLowered = makeSplitMessage(s, m)
 
 	if contains(splitMsgLowered, "yikes") {
-		s.ChannelMessageSend(m.ChannelID, "***YiKeS***")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇾")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇮")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇰")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇪")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇸")
 	} else if contains(splitMsgLowered, "yeet") {
 		s.ChannelMessageSend(m.ChannelID, "***yEET***")
 	} else if contains(splitMsgLowered, "kms") {
 		s.ChannelMessageSend(m.ChannelID, "Jump off of Colvard :alembic:")
-	}
-	if m.Author.ID == "121105861539135490" {
+	} else if contains(splitMsgLowered, "alembic") || contains(splitMsgLowered, "alembot") || contains(splitMsgLowered, ":alembic:") || contains(splitMsgLowered, "⚗") {
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇦")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇱")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇪")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇲")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🅱")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇮")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇨")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "⚗")
+	} else if contains(splitMsgLowered, "socks") {
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇸")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇴")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇨")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇰")
 	}
 
 	if len(splitMsgLowered) > 0 { // Prevented a really rare and weird bug about going out of index.
