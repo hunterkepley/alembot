@@ -78,7 +78,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) { // Messag
 
 	splitMsgLowered = makeSplitMessage(s, m)
 
-	if contains(splitMsgLowered, "yikes") {
+	if contains(splitMsgLowered, "yikes") || contains(splitMsgLowered, "yike") {
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇾")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇮")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇰")
@@ -102,6 +102,38 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) { // Messag
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇴")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇨")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇰")
+	} else if contains(splitMsgLowered, "we") && contains(splitMsgLowered, "won") {
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇦")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇱")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇪")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇲")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🅱")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇮")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇨")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "⚗")
+		s.ChannelMessageSend(m.ChannelID, ":alembic: GOOD JOB BOYS :alembic: INSANITY OR FIRESTAR PROBABLY CARRIED BUT IT'S OK YOU STILL WON GOOD JOB :alembic: NOW PARTY OR EAT SOMETHIN OR GO OUTSIDE OR SOMETHING :alembic: OR DO SOME HOMEWORK :alembic: BUT YOU WON AND THIS IS THE ONLY ACCOMPLISHMENT YOU'LL FEEL FOR THE NEXT 10 YEARS :alembic:")
+	} else if contains(splitMsgLowered, "jeff") {
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇯")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇪")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇫")
+	} else if contains(splitMsgLowered, "kys") {
+		s.ChannelMessageSend(m.ChannelID, "Don't be so rude")
+	} else if contains(splitMsgLowered, "ez") {
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇪")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇿")
+	} else if contains(splitMsgLowered, "freelo") {
+		s.ChannelMessageSend(m.ChannelID, "That was freelo, boys :alembic:")
+	} else if contains(splitMsgLowered, "insanity") {
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇮")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇳")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇸")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🅰")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "Ⓜ")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "ℹ")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇹")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇾")
+	} else if contains(splitMsgLowered, "siege") && contains(splitMsgLowered, "sucks") {
+		s.ChannelMessageSend(m.ChannelID, "Siege really do suck")
 	}
 
 	if len(splitMsgLowered) > 0 { // Prevented a really rare and weird bug about going out of index.
