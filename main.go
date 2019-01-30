@@ -78,17 +78,29 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) { // Messag
 
 	splitMsgLowered = makeSplitMessage(s, m)
 
-	if contains(splitMsgLowered, "yikes") || contains(splitMsgLowered, "yike") {
+	if contains(splitMsgLowered, "yikes") || contains(splitMsgLowered, "yike") || contains(splitMsgLowered, "firestar") {
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇾")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇮")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇰")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇪")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇸")
-	} else if contains(splitMsgLowered, "yeet") {
+	}
+	if contains(splitMsgLowered, "4head") {
+		s.ChannelMessageSendEmbed(m.ChannelID, &discordgo.MessageEmbed{
+			Image: &discordgo.MessageEmbedImage{
+				URL:    "https://i.gyazo.com/acf5fe88cab6cd5e6af75452302f02dd.png",
+				Width:  200,
+				Height: 20,
+			},
+		})
+	}
+	if contains(splitMsgLowered, "yeet") {
 		s.ChannelMessageSend(m.ChannelID, "***yEET***")
-	} else if contains(splitMsgLowered, "kms") {
+	}
+	if contains(splitMsgLowered, "kms") || contains(splitMsgLowered, "colvard") {
 		s.ChannelMessageSend(m.ChannelID, "Jump off of Colvard :alembic:")
-	} else if contains(splitMsgLowered, "alembic") || contains(splitMsgLowered, "alembot") || contains(splitMsgLowered, ":alembic:") || contains(splitMsgLowered, "⚗") {
+	}
+	if contains(splitMsgLowered, "alembic") || contains(splitMsgLowered, "alembot") || contains(splitMsgLowered, ":alembic:") || contains(splitMsgLowered, "⚗") {
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇦")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇱")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇪")
@@ -97,12 +109,14 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) { // Messag
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇮")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇨")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "⚗")
-	} else if contains(splitMsgLowered, "socks") {
+	}
+	if contains(splitMsgLowered, "socks") {
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇸")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇴")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇨")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇰")
-	} else if contains(splitMsgLowered, "we") && contains(splitMsgLowered, "won") {
+	}
+	if contains(splitMsgLowered, "we") && contains(splitMsgLowered, "won") {
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇦")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇱")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇪")
@@ -112,18 +126,23 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) { // Messag
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇨")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "⚗")
 		s.ChannelMessageSend(m.ChannelID, ":alembic: GOOD JOB BOYS :alembic: INSANITY OR FIRESTAR PROBABLY CARRIED BUT IT'S OK YOU STILL WON GOOD JOB :alembic: NOW PARTY OR EAT SOMETHIN OR GO OUTSIDE OR SOMETHING :alembic: OR DO SOME HOMEWORK :alembic: BUT YOU WON AND THIS IS THE ONLY ACCOMPLISHMENT YOU'LL FEEL FOR THE NEXT 10 YEARS :alembic:")
-	} else if contains(splitMsgLowered, "jeff") {
+	}
+	if contains(splitMsgLowered, "jeff") {
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇯")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇪")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇫")
-	} else if contains(splitMsgLowered, "kys") {
+	}
+	if contains(splitMsgLowered, "kys") {
 		s.ChannelMessageSend(m.ChannelID, "Don't be so rude")
-	} else if contains(splitMsgLowered, "ez") {
+	}
+	if contains(splitMsgLowered, "ez") {
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇪")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇿")
-	} else if contains(splitMsgLowered, "freelo") {
+	}
+	if contains(splitMsgLowered, "freelo") {
 		s.ChannelMessageSend(m.ChannelID, "That was freelo, boys :alembic:")
-	} else if contains(splitMsgLowered, "insanity") {
+	}
+	if contains(splitMsgLowered, "insanity") {
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇮")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇳")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇸")
@@ -132,8 +151,15 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) { // Messag
 		s.MessageReactionAdd(m.ChannelID, m.ID, "ℹ")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇹")
 		s.MessageReactionAdd(m.ChannelID, m.ID, "🇾")
-	} else if contains(splitMsgLowered, "siege") && contains(splitMsgLowered, "sucks") {
+	}
+	if contains(splitMsgLowered, "siege") && contains(splitMsgLowered, "sucks") {
 		s.ChannelMessageSend(m.ChannelID, "Siege really do suck")
+	}
+	if contains(splitMsgLowered, "colvard") || contains(splitMsgLowered, "jump") {
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇯")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇺")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇲")
+		s.MessageReactionAdd(m.ChannelID, m.ID, "🇵")
 	}
 
 	if len(splitMsgLowered) > 0 { // Prevented a really rare and weird bug about going out of index.
